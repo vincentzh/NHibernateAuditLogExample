@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" schema="dbo" assembly="NHibernateAuditLogExample"
+                   default-lazy="false">
+	<class name="NHibernateAuditLogExample.CatalogComponent"
+	       table="tblCatalogComponent">
+
+		<id name="Id" type="Int32" unsaved-value="0">
+			<generator class="identity" />
+		</id>
+
+		<property name="Name" />
+
+
+		<bag name="Descriptions" table="tblDescriptions" lazy="true">
+			<key column="ComponentId" />
+   
+			<element column="Description" type="String"  />
+		</bag>
+
+	</class>
+</hibernate-mapping>

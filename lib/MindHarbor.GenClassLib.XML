@@ -1,0 +1,1036 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MindHarbor.GenClassLib</name>
+    </assembly>
+    <members>
+        <member name="T:MindHarbor.GenClassLib.MiscUtil.ConfigHelperBase">
+            <summary>
+            a base class for config helper in projects
+            </summary>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.ConfigHelperBase.GetSetting``1(System.String,``0)">
+            <summary>
+            Try get the setting in the confirguration file, if not set there, return the defaultValue
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.ConfigHelperBase.RootPath">
+            <summary>
+            The insecure root application path of the current http application
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.ConfigHelperBase.RootPath(System.Boolean)">
+            <summary>
+            The root application path of the current http application
+            </summary>
+            <param name="secure">whether or not return a secure link to the root</param>
+            <returns></returns>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.MessageBoard.IMessageFilter">
+            <summary>
+             A Filter that filter out certain messages
+            </summary>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.IMessageFilter.Accept(MindHarbor.GenClassLib.MessageBoard.IMessage)">
+            <summary>
+            Indicate if the filter can pass through the message
+            </summary>
+            <param name="msg"></param>
+            <returns>true if the message can be passed through;
+            false if the message is filtered out
+            </returns>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.MiscUtil.MathUtil">
+            <summary>
+            Summary description for MathUtil.
+            </summary>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.MathUtil.IntToNatrualLang(System.Int32)">
+            <summary>
+            if n > 0 return n.ToString(), if n == 0 return "No"
+            </summary>
+            <param name="n"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.MiscUtil.InstanceLoader">
+            <summary>
+            A loader writen to load instance of singleton types
+            </summary>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.InstanceLoader.LoadByConstrutor(System.Type)">
+            <summary>
+            Load the singleton of the type by constructor 
+            </summary>
+            <param name="t"></param>
+            <returns>null if there is no public non-parameter constructor</returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.InstanceLoader.LoadByInstanceProperty(System.Type)">
+            <summary>
+            Load the singleton by static property named "Instance"
+            </summary>
+            <param name="t"></param>
+            <returns>return null if there is no such 
+            </returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.InstanceLoader.Load(System.Type)">
+            <summary>
+            Load the singleton by all means
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.InstanceLoader.Load``1(System.String)">
+            <summary>
+            Load type by name
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.InstanceLoader.Load``1(System.String,System.Boolean)">
+            <summary>
+            Load type by name
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="name"></param>
+            <returns></returns>
+            <param name="throwException">throw exception if type with <paramref name="name"/> is not found</param>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.InstanceLoader.Load``1">
+            <summary>
+            Generic version of Load(System.Type t)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <remarks>
+            <see cref="!:InstanceLoader.Load(System.Type t)"/>
+            </remarks>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.InstanceLoader.Loadable(System.Type)">
+            <summary>
+            judge if Type t is a loadable singleton
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.DateTimeUtil.TimeSpanToFDays(System.TimeSpan)">
+            <summary>
+            Calculates the float number of days of a TimeSpan
+            </summary>
+            <param name="ts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.DateTimeUtil.GetDate(System.DateTime)">
+            <summary>
+            automatically return the date
+            </summary>
+            <param name="dt"></param>
+            <returns>return "" when the datetime is equal to the max value</returns>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.MessageBoard.MessageWithSourceBroadcasterImpl">
+            <summary>
+             A simple implementation of IMessageWithSourceBroadcaster
+            </summary>
+             <remarks>
+             it's using a repository of normal MessageBroadcasterImpl
+             </remarks>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.IMessageWithSourceBroadcaster.Subscribe(MindHarbor.GenClassLib.MessageBoard.IMessageListener,System.Object)">
+            <summary>
+            Subscribe a listener to the broadcaster
+            </summary>
+            <param name="subscriber"></param>
+            <returns>return if the <paramref name="subscriber"/>is already subscribed</returns>
+            <param name="source">if null, then it'll be not source specific</param>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.IMessageWithSourceBroadcaster.Subscribe(MindHarbor.GenClassLib.MessageBoard.IMessageListener,MindHarbor.GenClassLib.MessageBoard.IMessageFilter,System.Object)">
+            <summary>
+            </summary>
+            <param name="subscriber"></param>
+            <param name="filter">the filter associated with this subscriber</param>
+             <returns>return if the <paramref name="subscriber"/>is already subscribed</returns>
+            <param name="source"></param>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.IMessageWithSourceBroadcaster.Broadcast(MindHarbor.GenClassLib.MessageBoard.IMessageWithSource)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+            <returns>the number of listeners that get the message</returns>
+            <remarks>
+            if msg has a null source, it'll be listened by all subscriber that subscribed with null source
+            </remarks>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.IMessageWithSourceBroadcaster.Unsubscribe(MindHarbor.GenClassLib.MessageBoard.IMessageListener,System.Object)">
+            <summary>
+            Unsubscribe a listener from the subscribers list
+            </summary>
+            <param name="subscriber"></param>
+            <returns> true if unscribe successfully, otherwise, false</returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.IMessageWithSourceBroadcaster.Subscribe(MindHarbor.GenClassLib.MessageBoard.IMessageListener,System.Object,System.Type[])">
+            <summary>
+            
+            </summary>
+            <param name="subscriber"></param>
+            <param name="listeningTypes"></param>
+            <param name="listeningSource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.MessageWithSourceBroadcasterImpl.Broadcast(MindHarbor.GenClassLib.MessageBoard.IMessageWithSource)">
+            <summary>
+            Will always also broadcast message to subscribers that subscribe to null sources
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.MessageBoard.IMessageBroadcaster">
+            <summary>
+             A message broadcaster that works as an intermedia that can broadcast messages to all subscribers
+            </summary>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.IMessageBroadcaster.Subscribe(MindHarbor.GenClassLib.MessageBoard.IMessageListener)">
+            <summary>
+            Subscribe a listener to the broadcaster
+            </summary>
+            <param name="subscriber"></param>
+            <returns>return if the <paramref name="subscriber"/>is already subscribed</returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.IMessageBroadcaster.Subscribe(MindHarbor.GenClassLib.MessageBoard.IMessageListener,MindHarbor.GenClassLib.MessageBoard.IMessageFilter)">
+            <summary>
+            </summary>
+            <param name="subscriber"></param>
+            <param name="filter">the filter associated with this subscriber</param>
+             <returns>return if the <paramref name="subscriber"/>is already subscribed</returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.IMessageBroadcaster.Broadcast(MindHarbor.GenClassLib.MessageBoard.IMessage)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+            <returns>the number of listeners that get the message</returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.IMessageBroadcaster.Unsubscribe(MindHarbor.GenClassLib.MessageBoard.IMessageListener)">
+            <summary>
+            Unsubscribe a listener from the subscribers list
+            </summary>
+            <param name="subscriber"></param>
+            <returns> true if unscribe successfully, otherwise, false</returns>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.MessageBoard.SpecificTypesMessageFilter">
+            <summary>
+            A message filter that filter out messages according to their types
+            </summary>
+        </member>
+        <member name="F:MindHarbor.GenClassLib.MessageBoard.SpecificTypesMessageFilter.acceptedTypes">
+            <summary>
+            The collection of the message types accecpeted
+            </summary>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.SpecificTypesMessageFilter.#ctor(System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            
+            </summary>
+            <param name="acceptedTypes">null acceptedTypes has the same effect as empty acceptedTypes, that is, no message will be accepted </param>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.SpecificTypesMessageFilter.Accept(MindHarbor.GenClassLib.MessageBoard.IMessage)">
+            <summary>
+            Indicate if the filter can pass through the message
+            </summary>
+            <param name="msg"></param>
+            <returns>true if the message can be passed through;
+            false if the message is filtered out
+            </returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.SpecificTypesMessageFilter.AcceptType(MindHarbor.GenClassLib.MessageBoard.IMessage)">
+            <summary>
+            Judge if the type of the message is accecpted
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.MessageBoard.IMessageWithSource">
+            <summary>
+             Message that includes Source information
+            </summary>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.MessageBoard.IMessage">
+            <summary>
+            A message 
+            </summary>
+        </member>
+        <member name="P:MindHarbor.GenClassLib.MessageBoard.IMessageWithSource.Source">
+            <summary>
+             Gets the object from which the message is originated
+            </summary>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.XMLUtil.GeneralCompositeXmlMapper">
+            <summary>
+            Summary description for GeneralCompositeXmlMapper.
+            </summary>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.XMLUtil.CompositeXmlMapperBase">
+            <summary>
+            This mapper will map a composite patterned object into an xml file
+            </summary>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.XMLUtil.CompositeXmlMapperBase.createXmlElementsOfSubs(System.Object)">
+            <summary>
+            this method is for inheritance of this class to override to
+            write their own way of creating xmlElements for the components of a composite
+            </summary>
+            <param name="composite"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.XMLUtil.CompositeXmlMapperBase.getMapperManagedProperty(System.Object,System.String)">
+            <summary>
+            this method is to get a mapper managed property that is calculated by the inheritance mapper
+            </summary>
+            <param name="propertyName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MindHarbor.GenClassLib.XMLUtil.CompositeXmlMapperBase.MapperManagedProperties">
+            <summary>
+            The names of the Properties that should be managed by the inheritance mapper
+            by using getMapperManagedProperty(...)
+            </summary>
+        </member>
+        <member name="P:MindHarbor.GenClassLib.XMLUtil.CompositeXmlMapperBase.CustomProperties">
+            <summary>
+            the names of the other properties(string) needs to be mapped into an element
+            the mapper will call the ToString() method on these properties and map the value to xml files
+            </summary>
+        </member>
+        <member name="P:MindHarbor.GenClassLib.XMLUtil.CompositeXmlMapperBase.IgnoreRoot">
+            <summary>
+            when mapping the composite whether map the root component name/property and so on
+            </summary>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.Validation.ValidationError">
+            <summary>
+            Summary description for ValidationError.
+            </summary>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.MiscUtil.CSVReaderUtil">
+            <summary>
+            Summary description for CVSImporter.
+            </summary>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.CSVReaderUtil.GuessMatchSettingsFromColumns(System.Data.DataColumnCollection,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Try to guess all the columns in a DataColumnCollection for a type's public properties
+            </summary>
+            <param name="columns"></param>
+            <returns>return a NameValueCollection where name is the type's property name with a value of the guessed columnName</returns>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.Validation.ValidationException">
+            <summary>
+            Summary description for mmpireDomainException.
+            </summary>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.MessageBoard.GenericMessage`1">
+            <summary>
+            A generic message with a data object included
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.GenericMessage`1.#ctor(`0)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="P:MindHarbor.GenClassLib.MessageBoard.GenericMessage`1.Data">
+            <summary>
+             The data object associated with this message
+            </summary>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.ImpactReport.EntityUpdateImpact">
+            <summary>
+            Impact that update other entity
+            </summary>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.ImpactReport.ImpactBase">
+            <summary>
+            reprents an impact caused by the deletion
+            </summary>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.ImpactReport.IImpact">
+            <summary>
+            reprents an impact that will be caused by a deletion
+            </summary>
+        </member>
+        <member name="P:MindHarbor.GenClassLib.ImpactReport.IImpact.Message">
+            <summary>
+            Gets the <see cref="T:System.String"/> message
+            </summary>
+        </member>
+        <member name="P:MindHarbor.GenClassLib.ImpactReport.IImpact.SubItems">
+            <summary>
+            Sub Impact Items
+            </summary>
+        </member>
+        <member name="F:MindHarbor.GenClassLib.ImpactReport.ImpactBase.subItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MindHarbor.GenClassLib.ImpactReport.ImpactBase.Message">
+            <summary>
+            Gets the <see cref="T:System.String"/> message
+            </summary>
+        </member>
+        <member name="P:MindHarbor.GenClassLib.ImpactReport.ImpactBase.SubItems">
+            <summary>
+            Sub Impacts
+            </summary>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.GenericMessageWithSource`1.#ctor(`0)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="P:MindHarbor.GenClassLib.MessageBoard.GenericMessageWithSource`1.Source">
+            <summary>
+             The source object associated with this message
+            </summary>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.Data.StatesCountriesDataHelper">
+            <summary>
+            Summary description for StatesCountriesDataHelper.
+            </summary>
+        </member>
+        <member name="P:MindHarbor.GenClassLib.Data.StatesCountriesDataHelper.Countries">
+            <summary>
+            always return a new instance of the table
+            </summary>
+        </member>
+        <member name="P:MindHarbor.GenClassLib.Data.StatesCountriesDataHelper.States">
+            <summary>
+            always return a new instance of the table
+            </summary>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.MessageBoard.SpecificTypeMessageFilter`1">
+            <summary>
+             A filte that only accept message of the specific <typeparamref name="T"/>  
+            </summary>
+            <typeparam name="T">the type of the message accecpted</typeparam>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.SpecificTypeMessageFilter`1.Accept(MindHarbor.GenClassLib.MessageBoard.IMessage)">
+            <summary>
+            Indicate if the filter can pass through the message
+            </summary>
+            <param name="msg"></param>
+            <returns>true if the message can be passed through;
+            false if the message is filtered out
+            </returns>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.ImpactReport.EntityDeletionImpact">
+            <summary>
+             impact that delete other entity
+            </summary>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.ImpactReport.EntityDeletionImpact.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.ImpactReport.EntityDeletionImpact.CreateWithSimpleMessage(System.String,System.String)">
+            <summary>
+            Generate EntityDeletionImpact with a simple deletion impact message built upon <paramref name="entityName"/> and <paramref name="entityType"/>
+            </summary>
+            <param name="entityType"></param>
+            <param name="entityName"></param>
+            <returns></returns>
+            <remarks>a simple helper creation method</remarks>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.ImpactReport.EntityDeletionImpact.NewAssociationSubItem(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="associationName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.StringUtil.SplitName(System.String)">
+            <summary>
+            split a name to lastname and firstname
+            </summary>
+            <param name="name">the name format can be either "Lastname, firstname" or "firstname lastname"</param>
+            <returns>name[0] : LastName ; name[1] FirstName
+            if the name is only one word, it will be returned as the lastname, while the firstname will be null
+            </returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.StringUtil.Parse``1(System.String)">
+            <summary>
+             Parses a string to <typeparamref name="T"/>
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.MessageBoard.IMessageListener">
+            <summary>
+            Class that listen to messages
+            </summary>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.IMessageListener.Listen(MindHarbor.GenClassLib.MessageBoard.IMessage)">
+            <summary>
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.MessageBoard.IMessageListenerWithSwich">
+            <summary>
+            MessageListener that can turn itself off
+            </summary>
+        </member>
+        <member name="P:MindHarbor.GenClassLib.MessageBoard.IMessageListenerWithSwich.Off">
+            <summary>
+             if this listenner is switched off
+            </summary>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.ImpactReport.IHasDeletionImpact">
+            <summary>
+            An interface for entities that has deletion impact and can generate furthur ImpactReport
+            </summary>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.ImpactReport.IHasDeletionImpact.ReportImpact">
+            <summary>
+            Generate the <see cref="T:MindHarbor.GenClassLib.ImpactReport.EntityDeletionImpact"/> of the deletion of this entity
+            </summary>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.MessageBoard.TypeMessageFilterBase">
+            <summary>
+            A base class for utilizing specificTypesMessageFilter
+            </summary>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.TypeMessageFilterBase.#ctor(System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            </summary>
+            <param name="acceptedTypes"></param>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.TypeMessageFilterBase.Accept(MindHarbor.GenClassLib.MessageBoard.IMessage)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.TypeMessageFilterBase.AcceptByOtherCriteria(MindHarbor.GenClassLib.MessageBoard.IMessage)">
+            <summary>
+            Override to add filter logic other than if Message Type is Accepted Type 
+            </summary>
+            <param name="msg"></param>
+            <returns>true if accepted by other criteria, otherwise false  </returns>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.Data.RandomStringGenerator">
+            <summary>
+            This class can generate random passwords, which do not include ambiguous 
+            characters, such as I, l, and 1. The generated password will be made of
+            7-bit ASCII symbols. Every four characters will include one lower case
+            character, one upper case character, one number, and one special symbol
+            (such as '%') in a random order. The password will always start with an
+            alpha-numeric character; it will not start with a special symbol (we do
+            this because some back-end systems do not like certain special
+            characters in the first position).
+            </summary>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.Data.RandomStringGenerator.GenerateLetterStrings(System.Int32)">
+            <summary>
+            Generate a random string consisted of letters
+            </summary>
+            <param name="length">length of the string generated</param>
+            <returns></returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.Data.RandomStringGenerator.RandomInt">
+            <summary>
+             Generate a random Int
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.Data.RandomStringGenerator.Generate">
+            <summary>
+            Generates a random password.
+            </summary>
+            <returns>
+            Randomly generated password.
+            </returns>
+            <remarks>
+            The length of the generated password will be determined at
+            random. It will be no shorter than the minimum default and
+            no longer than maximum default.
+            </remarks>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.Data.RandomStringGenerator.Generate(System.Int32)">
+            <summary>
+            Generates a random password of the exact length.
+            </summary>
+            <param name="length">
+            Exact password length.
+            </param>
+            <returns>
+            Randomly generated password.
+            </returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.Data.RandomStringGenerator.Generate(System.Int32,System.Int32)">
+            <summary>
+            Generates a random password.
+            </summary>
+            <param name="minLength">
+            Minimum password length.
+            </param>
+            <param name="maxLength">
+            Maximum password length.
+            </param>
+            <returns>
+            Randomly generated password.
+            </returns>
+            <remarks>
+            The length of the generated password will be determined at
+            random and it will fall with the range determined by the
+            function parameters.
+            </remarks>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.Data.SessionData`1">
+            <summary>
+            This storage wrapper can be used as static field and store data in Session, it's key safe and it can be used outside of the HttpContext
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.Configuration.ECatalogConfigurationElement.#ctor(System.Xml.XmlReader)">
+            <summary>
+                Initializes a new instance of the <see cref="T:MindHarbor.GenClassLib.Configuration.SettingElement"/> class.
+            </summary>
+            <param name="configurationReader">The XML reader to parse.</param>
+            <remarks>
+                The nhs-configuration.xsd is applied to the XML.
+            </remarks>
+            <exception cref="T:MindHarbor.GenClassLib.Configuration.ECatalogConfigurationException">When nhs-configuration.xsd can't be applied.</exception>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.MessageBoard.DuplicationPreventionListenerFilter">
+            <summary>
+             A listener filter to prevent a listener listen a message more than once
+            </summary>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.DuplicationPreventionListenerFilter.#ctor(MindHarbor.GenClassLib.MessageBoard.IMessage)">
+            <summary>
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.Data.StatesEnum">
+            <summary>
+            Type safe enumberation of the states in the U.S.
+            </summary>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.Data.StatesEnum.Parse(System.String)">
+            <summary>
+            parse the state by a string, could be either a name or an abbrievation
+            </summary>
+            <param name="nameOrAbbr"></param>
+            <returns>the state found or null if no such state is found</returns>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.ProgressTracking.ProgressTracker">
+            <summary>
+             A class that helps tracking progress of an operation that overspan multiple classes
+            </summary>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.ProgressTracking.ProgressTracker.CreateSubTrackerOfSteps(System.Int32,System.Int32)">
+            <summary>
+            Create a subtracker that takes up multiple steps
+            </summary>
+            <param name="totalNumberOfSteps">how many steps in total this process will have</param>
+            <param name="numberOfStepsInTheSubTracker">how many steps this creating sub tracker will take</param>
+            <returns></returns>
+            <remarks>
+            <example>
+            CreateSubTrackerOfSteps(10, 4) means that you are currently in a sub process that takes up the 4 steps out of the 10 steps
+            </example>
+            </remarks>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.ProgressTracking.ProgressTracker.CreateSubTracker(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="totalNumberOfSteps"></param>
+            <param name="thisSubProcFinishingStep">the finishing number of Step once this current sub process finishes</param>
+            <returns></returns>
+        </member>
+        <member name="P:MindHarbor.GenClassLib.ProgressTracking.ProgressTracker.ProgressStatus">
+            <summary>
+             string description of the current progress
+            </summary>
+        </member>
+        <member name="P:MindHarbor.GenClassLib.ProgressTracking.ProgressTracker.Progress">
+            <summary>
+            Gets the progress of this tracker 
+            </summary>
+            <remarks>
+            from 0 to 1;
+            </remarks>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.MessageBoard.MessageBroadcasterImpl">
+            <summary>
+            The broadcaster that simple broad cast the message to all listeners
+            </summary>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.MessageBroadcasterImpl.Subscribe(MindHarbor.GenClassLib.MessageBoard.IMessageListener)">
+            <summary>
+            Subscribe a listener to the broadcaster
+            </summary>
+            <param name="subscriber"></param>
+            <returns>return if the <paramref name="subscriber"/>is already subscribed</returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.MessageBroadcasterImpl.Subscribe(MindHarbor.GenClassLib.MessageBoard.IMessageListener,MindHarbor.GenClassLib.MessageBoard.IMessageFilter)">
+            <summary>
+            </summary>
+            <param name="subscriber"></param>
+            <param name="filter">the filter associated with this subscriber</param>
+             <returns>return if the <paramref name="subscriber"/>is already subscribed</returns>
+             <remarks>if there is already a filer, subscribing will generate a DisJunction filter for them. <see cref="M:MindHarbor.GenClassLib.MessageBoard.MessageFilters.DisJunctionFilter(System.Collections.Generic.IEnumerable{MindHarbor.GenClassLib.MessageBoard.IMessageFilter})"/>
+             </remarks>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.MessageBroadcasterImpl.Unsubscribe(MindHarbor.GenClassLib.MessageBoard.IMessageListener)">
+            <summary>
+            Unsubscribe a listener from the generalSubscribers list
+            </summary>
+            <param name="subscriber"></param>
+            <returns> true if unscribe successfully, otherwise, false</returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.MessageBroadcasterImpl.Broadcast(MindHarbor.GenClassLib.MessageBoard.IMessage)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+            <returns>the number of listeners that get the message</returns>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.ObjectReport.ObjectReporter">
+            <summary>
+             A helper class that generate report <see cref="T:System.Data.DataTable"/> on from objects
+            </summary>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.ObjectReport.ObjectReporter.AddMapping(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Add a property-column mapping
+            </summary>
+            <param name="propertyName"></param>
+            <param name="columnName"></param>
+            <remarks>
+            The sequence of adding will be the sequence of the column. 
+            If the columnName is null or string.Empty, the property won't be included in the report unless you set it as a deep copy
+            </remarks>
+            <param name="formatString"></param>
+            <param name="deepCopy"></param>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.ObjectReport.ObjectReporter.AddDeepCopyMapping(System.String)">
+            <summary>
+            Set ObjectReporter to deepCopy the property with <paramref name="propertyName"/>
+            </summary>
+            <param name="propertyName"></param>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.ObjectReport.ObjectReporter.MapTableColumn(System.String,System.Data.DataTable)">
+            <summary>
+            Get the column Name by the property Name, and ensure that the column exists.
+            </summary>
+            <param name="propertyName"></param>
+            <param name="dt"></param>
+            <returns>the mapped column name if the property is not ignored according to the mapping, otherwise string.empty</returns>
+        </member>
+        <member name="P:MindHarbor.GenClassLib.ObjectReport.ObjectReporter.ColumnSetting.DeepCopy">
+            <summary>
+            whether to deep copy the property entity - instead of just using ToString(), deep copy copy all the properties in the entity
+            </summary>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.DownloadUtil.DownLoadByStream(System.String)">
+            <summary>
+            Send the file in the filepath to the HttpResponse and end it
+            </summary>
+            <param name="filePath"></param>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.DownloadUtil.GetFileName(System.String)">
+            <summary>
+            only get fileName(non-include path);
+            </summary>
+            <param name="fullpath">fullpath</param>
+            <returns></returns>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.MessageBoard.MessageFilters">
+            <summary>
+            Static factory of message filters
+            </summary>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.ImpactReport.AssociationImpact">
+            <summary>
+            Impact to a association of the to-be-deleted
+            </summary>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.ImpactReport.AssociationImpact.NewEntityUpdateSubItem(System.String)">
+            <summary>
+            Create a Impact for an entity in this assocation that is going to be updated
+            </summary>  
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.ImpactReport.AssociationImpact.NewEntityDeletionSubItem(System.String)">
+            <summary>
+            Create a Impact for an entity in this assocation that is going to be deleted
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.ImpactReport.AssociationImpact.NewEntityDeletionSubItem(MindHarbor.GenClassLib.ImpactReport.IHasDeletionImpact)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.ImpactReport.AssociationImpact.NewEntityDeletionSubItem(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.Validation.IValidatable">
+            <summary>
+            Summary description for IValidatable.
+            </summary>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.Validation.IValidatable.Validate">
+            <summary>
+            
+            </summary>
+            <returns>an collection of <see cref="T:MindHarbor.GenClassLib.Validation.ValidationError"/>
+            if the validation passes, an empty collection will be returned. 
+            </returns>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.MiscUtil.GenericComparer`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.GenericComparer`1.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="expression">order expression: PROPERTY_NAME ASC|DESC </param>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.GenericComparer`1.#ctor(System.String,System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="expression">order expression: PROPERTY_NAME ASC|DESC </param>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.GenericComparer`1.Compare(`0,`0)">
+            <summary>
+            Compares two objects and returns a value indicating whether one is less than, equal to, or greater than the other.
+            </summary>
+            
+            <returns>
+            Value Condition Less than zerox is less than y.Zerox equals y.Greater than zerox is greater than y.
+            </returns>
+            
+            <param name="y">The second object to compare.</param>
+            <param name="x">The first object to compare.</param>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.ProgressTracking.ProgressChangedArgs">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.MiscUtil.CollectionUtil">
+            <summary>
+            An Utility class that provide a number of helper methods arround collections. 
+            </summary>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.CollectionUtil.DictionaryAddRange(System.Collections.IDictionary,System.Collections.IDictionary)">
+            <summary>
+            Adds all items from one dictionary to another 
+            </summary>
+            <param name="original">The original.</param>
+            <param name="toAdd">To add.</param>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.CollectionUtil.DictionaryAddRange(System.Collections.IDictionary,System.Collections.IEnumerable,System.Object)">
+            <summary>
+            Add a collection of items into a dictionary, using a collection of keys and one default value for all the items
+            </summary>
+            <param name="original">The original.</param>
+            <param name="newKeys">The new keys.</param>
+            <param name="defaultValue">The default value.</param>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.CollectionUtil.Sort(System.Collections.ICollection)">
+             <summary>
+             Sorts the Ilist.
+             </summary>
+             <param name="collection">The collection.</param>
+            <returns>A new sorted IList that has all the items in the <paramref name="collection"/></returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.CollectionUtil.Sort``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            </summary>
+            <param name="collection"></param>
+            <typeparam name="T"></typeparam>
+            <returns>A new sorted IList that has all the items in the <paramref name="collection"/></returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.CollectionUtil.Sort``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            </summary>
+            <param name="collection"></param>
+            <typeparam name="T"></typeparam>
+            <returns>A new sorted IList that has all the items in the <paramref name="collection"/></returns>
+            <param name="sortExpression"></param>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.CollectionUtil.GetLast(System.Collections.IEnumerable)">
+            <summary>
+            Get the last item from an IEnumerable
+            </summary>
+            <param name="collection"></param>
+            <returns>return null if the collection is empty</returns>
+            <remarks>
+            This method depends on the sequence of the collection, 
+            if the collection does not have a sequence, then it is unpreditable that which item will be returned.
+            </remarks>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.CollectionUtil.GetFirst(System.Collections.IEnumerable)">
+            <summary>
+            Get the first item from an IEnumerable
+            </summary>
+            <param name="collection"></param>
+            <returns>return null if the collection is empty</returns>
+            <remarks>
+            This method depends on the sequence of the collection, 
+            if the collection does not have a sequence, then it is unpreditable that which item will be returned.
+            </remarks>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.CollectionUtil.GetOneItem``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Get an item from an IEnumerable (the first one returned by its enumerator
+            </summary>
+            <param name="collection"></param>
+            <returns>returns null if the collection is empty</returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.CollectionUtil.RandomItem``1(System.Collections.Generic.ICollection{``0})">
+            <summary>
+            Get random item from an ICollection  
+            </summary>
+            <param name="collection"></param>
+            <returns>returns null if the collection is empty</returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.CollectionUtil.ToString(System.Collections.IEnumerable,System.String,System.String)">
+            <summary>
+            Builds a string reprensentation for a <paramref name="collection"/>
+            </summary>
+            <param name="collection"></param>
+            <param name="seperator">the string used to seperate strings of different items</param>
+            <param name="emptyText">the string to be return if the <paramref name="collection"/> is empty</param>
+            <returns></returns>
+            <remarks>
+            Note that null tiems and items with an empty ToString() won't show up in this representation
+            To control this behavior use <see cref="M:MindHarbor.GenClassLib.MiscUtil.CollectionUtil.ToString(System.Collections.IEnumerable,System.String,System.String,System.String)"/>
+            </remarks>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.CollectionUtil.ToString(System.Collections.IEnumerable,System.String,System.String,System.String)">
+            <summary>
+            Builds a string reprensentation for a <paramref name="collection"/>
+            </summary>
+            <param name="collection"></param>
+            <param name="seperator">the string used to seperate strings of different items</param>
+            <param name="emptyText">the string to be return if the <paramref name="collection"/> is empty</param>
+            <param name="nullText">the string to use when the item is null or its ToString() returns an empty string</param>
+            <returns></returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.CollectionUtil.ToString(System.Collections.IEnumerable,System.String)">
+            <summary>
+            Builds a string reprensentation for a <paramref name="collection"/>
+            </summary>
+            <param name="collection"></param>
+            <param name="seperator">the string used to seperate strings of different items</param>
+            <returns>returns <see cref="F:System.String.Empty"/> if the <paramref name="collection"/> is empty.</returns>
+            <remarks>
+            Note that item with an empty ToString() won't show up in this representation.
+            To control this behavior use <see cref="M:MindHarbor.GenClassLib.MiscUtil.CollectionUtil.ToString(System.Collections.IEnumerable,System.String,System.String,System.String)"/>
+            </remarks>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.XMLUtil.DictionarySerializer">
+            <summary>
+            Summary description for DictionarySerializer.
+            </summary>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.MessageBoard.NullMsgFilter">
+            <summary>
+            A filter that does not filter out any messages
+            </summary>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MessageBoard.NullMsgFilter.Accept(MindHarbor.GenClassLib.MessageBoard.IMessage)">
+            <summary>
+            </summary>
+            <param name="msg"></param>
+            <returns>always true </returns>
+        </member>
+        <member name="P:MindHarbor.GenClassLib.MessageBoard.NullMsgFilter.Instance">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:MindHarbor.GenClassLib.Data.SQLDAHelper">
+            <summary>
+            Set the connection String before using any of the method.
+            this helper class is only useful one there is only one database
+            </summary>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.Data.SQLDAHelper.BuildPageQuery(System.String,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            for generating a page query
+            </summary>
+            <param name="queryingFields">the fields' names </param>
+            <param name="pageIndex">starts from 1</param>
+            <param name="pageSize"></param>
+            <param name="fromTables"> the tables names after "FROM" </param>
+            <param name="orderByTable"></param>
+            <param name="orderByColumn"></param>
+            <param name="condition">the condition after WHERE</param>
+            <param name="orderColumIsUnique">if the orderColumn is unique (different algorithm will be applied) </param>
+            <param name="ASC">TRUE if order by ASC </param>
+            <returns></returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.InterfaceCopier.CopyIContactInfo(MindHarbor.GenInterfaces.IContactInfo,MindHarbor.GenInterfaces.IContactInfoM)">
+            <summary>
+            this is a deep copy
+            </summary>
+            <param name="from"></param>
+            <param name="to"></param>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.HttpHelper.UnidirectionHttpRequest(System.String,System.String)">
+            <summary>
+            Do a http request without getting response
+            </summary>
+            <param name="postData"></param>
+            <param name="url"></param>
+            <remarks> 
+            due to some unknow bug, this method cannot be performed over 24 times in one thread. 
+            </remarks>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.MiscUtil.HttpHelper.AddPara(System.String,System.String)">
+            <summary>
+            Generate para string in the url
+            </summary>
+            <param name="paraName"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MindHarbor.GenClassLib.Data.Tuples.Tuple``2(``0,``1)">
+            <summary>
+            </summary>
+            <param name="t1"></param>
+            <param name="t2"></param>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

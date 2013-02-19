@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ecatalog-configuration xmlns="urn:ecatalog-configuration-1.0">
+	<setting>
+		<property name="ServiceLocatorType">NHibernateAuditLogExample.ServiceLocator,NHibernateAuditLogExample</property>
+		<property name="DomainSessionType">NHibernateAuditLogExample.ECatalogDomainSession,NHibernateAuditLogExample</property>
+		<property key="MindHarbor.ClassEnum.ClassEnumTypes" >NHibernateAuditLogExample.Permission, NHibernateAuditLogExample</property>
+	</setting>
+</ecatalog-configuration>

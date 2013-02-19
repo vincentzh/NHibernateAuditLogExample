@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" schema="dbo"  assembly="NHibernateAuditLogExample" default-lazy="false">
+  <class name="NHibernateAuditLogExample.ECatalogUser" table="tblECatalog_User" >
+    <id name="Id" type="Int32"  unsaved-value="0">
+      <generator class="identity" />
+    </id>
+	<property name ="Name"/>
+	  <set name="Components"  table="tblEUserComponentsLink"  lazy="true" cascade="save-update">
+		  <key column="UserId"></key>
+		  <one-to-many class="NHibernateAuditLogExample.CatalogComponent" />
+	  </set>
+	  <set name="Permissions" access="field.camelcase" lazy="true"  table="tblUser_Permissions">
+		  <key column="userId" />
+		  <element column="Permission" type="NHibernateAuditLogExample.PermissionUserType,NHibernateAuditLogExample"  />
+	  </set>
+  </class>
+</hibernate-mapping>

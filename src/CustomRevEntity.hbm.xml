@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" schema="dbo" assembly="NHibernateAuditLogExample" default-lazy="false">
+	<class name="NHibernateAuditLogExample.CustomRevEntity" table="REVINFO" >
+		<id name="Id"  unsaved-value="0">
+			<generator class="identity" />
+		</id>
+		<property name="Timestamp"/>
+		<property name="MaintainedBy"/>
+	</class>
+</hibernate-mapping>
